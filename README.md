@@ -10,4 +10,4 @@ Request additional scripts as needed! Email [matt@trackandtrace.tools](mailto:ma
 - [load_all_active_packages.py](load_all_active_packages.py) shows how to load a large number of packages, one page at a time, and writes the package data to a CSV file
 - [download_all_outgoing_manifests.py](download_all_outgoing_manifests.py) shows how to download manifest PDFs into one directory, separated by the parent license number
 - [write_one_license_outgoing_transfer_data_to_csv.py](write_one_license_outgoing_transfer_data_to_csv.py) shows how to select a single license using a command line menu, and write all outgoing transfers into a CSV file
-  [download_all_transfer_coa_pdfs.py](download_all_transfer_coa_pdfs.py) shows how to download all COA PDFs from a single outgoing transfer
+- [download_all_transfer_coa_pdfs.py](download_all_transfer_coa_pdfs.py) shows how to download all COA PDFs from a single outgoing transfer
