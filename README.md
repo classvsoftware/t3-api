@@ -2,7 +2,7 @@
 
 These are example python scripts that use the [T3 API](https://api.trackandtrace.tools/v2/docs/) to automatically talk to metrc.com
 
-Request additional scripts as needed! Email [mailto:matt@trackandtrace.tools](matt@trackandtrace.tools) or file an issue in this repository.
+Request additional scripts as needed! Email [matt@trackandtrace.tools](mailto:matt@trackandtrace.tools) or file an issue in this repository.
 
 ## Examples
 
