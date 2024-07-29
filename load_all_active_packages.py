@@ -5,6 +5,7 @@
 
 import csv
 import getpass
+import os  # Import os for directory management
 from datetime import datetime  # Import datetime for date stamping
 
 import requests
@@ -14,7 +15,8 @@ BASE_URL = "https://api.trackandtrace.tools"
 USERNAME = "YOUR_USERNAME"  # Replace with your actual username
 HOSTNAME = "ca.metrc.com"  # Update this to your specific Metrc hostname
 LICENSE_NUMBER = "LIC-00001"  # Replace with the actual license number
-OUTPUT_CSV_TEMPLATE = "packages_{}.csv"  # Template for the output file name
+OUTPUT_DIR = "output"  # Directory for output files
+OUTPUT_CSV_TEMPLATE = os.path.join(OUTPUT_DIR, "packages_{}.csv")  # Template for the output file name
 
 
 def get_access_token(hostname, username, password, otp=None):
@@ -79,7 +81,10 @@ def write_packages_to_csv(packages, output_file):
         print("No packages found.")
         return
 
-    keys = packages[0].keys()  # Use the first license's keys for the CSV headers
+    # Create the output directory if it doesn't exist
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+
+    keys = packages[0].keys()  # Use the first package's keys for the CSV headers
     with open(output_file, "w", newline="") as output:
         dict_writer = csv.DictWriter(output, fieldnames=keys)
         dict_writer.writeheader()
@@ -105,7 +110,7 @@ def main():
 
         packages = get_packages(access_token, LICENSE_NUMBER)
         write_packages_to_csv(packages, output_file)
-        print(f"Licenses have been written to {output_file}")
+        print(f"Packages have been written to {output_file}")
 
     except requests.exceptions.HTTPError as e:
         print(f"HTTP error occurred: {e}")
@@ -115,3 +120,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+``
