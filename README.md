@@ -2,6 +2,8 @@
 
 These are example python scripts that use the [T3 API](https://api.trackandtrace.tools/v2/docs/) to automatically talk to metrc.com
 
+Request additional scripts as needed! Email [mailto:matt@trackandtrace.tools](matt@trackandtrace.tools) or file an issue in this repository.
+
 ## Examples
 
 - [license_data_csv.py](license_data_csv.py) is a simple introductory script that securely reads the user's password in the command line, authenticates with the API, loads the active licenses, and writes the data to a CSV file
