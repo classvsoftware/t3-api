@@ -6,13 +6,15 @@
 import csv
 import getpass
 import requests
+import os  # Import os for directory operations
 from datetime import datetime  # Import datetime for date stamping
 
 # Constants
 BASE_URL = "https://api.trackandtrace.tools"
 USERNAME = "YOUR_USERNAME"  # Replace with your actual username
 HOSTNAME = "ca.metrc.com"  # Update this to your specific Metrc hostname
-OUTPUT_CSV_TEMPLATE = "licenses_{}.csv"  # Template for the output file name
+OUTPUT_DIR = "output"  # Directory to store the output files
+OUTPUT_CSV_TEMPLATE = os.path.join(OUTPUT_DIR, "licenses_{}.csv")  # Template for the output file name
 
 def get_access_token(hostname, username, password, otp=None):
     """
@@ -71,6 +73,9 @@ def main():
     Main function to run the script.
     Prompts the user for password (and OTP if required), retrieves licenses, and writes them to a CSV file.
     """
+    # Ensure the output directory exists
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    
     # Get the current date and format it as YYYYMMDD
     date_stamp = datetime.now().strftime("%Y%m%d")
     # Generate the output file name with the date stamp
